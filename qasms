@@ -1,0 +1,3 @@
+<?
+$conn=new mysqli("localhost","anevico_qasms","gSHxPJX*tiFh","anevico_qasms")or die("Connection Failed");
+?>
