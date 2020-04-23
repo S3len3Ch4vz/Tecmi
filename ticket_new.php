@@ -48,44 +48,48 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
     <title>Creador de tickets</title>
 </head>
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.php"><img src="http://anevi.com/QASMS/images/index/u0.png" width="250px" alt="view-apps"></img></a>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.php"><img src="http://anevi.com/QASMS/images/index/u0.png" width="255px" alt="view-apps"></img></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
  
-    <form class="form-inline my-2 my-md-0">
-
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal_general">Cerrar Sesi&oacute;n</button>
+    <form class="form-inline my-2 my-lg-0">
+        <button type="button" class="btn btn-secondary" href="logout.php" data-toggle="modal" data-target="#modal_general">Cerrar Sesi&oacute;n </button>
     </form>
   </div>
 </nav>
 </header>
+ 
  <body style="background-color:#A0CAD9">
- <div class="badge badge-primary text-wrap" style="width: 8rem; text-align: right; font-size:18px;">
-  Folio No. <?/*=$foliorandom;*/?> 
-</div>
-<p class="text-right" style="font-size: 18px;">Fecha: <?/*=$fechaActual;*/?></p>
-<div class="container-xl">
-	<div class="text-right">
+    <div class="col-md-4">
+   <div class="badge badge-primary text-wrap" style="width: 8rem; left; font-size:18px;"> Folio No. <?/*=$foliorandom;*/?> 
+      </div>
+     </div>
+       <p class="col-md-4" style="font-size:25px;">Fecha: <?/*=$fechaActual;*/?></p>
+      </form>
+<div class="container">
+	<div class="text-center">
          <h1 class="display-4">Orden de Servicio</h1>
     </div>
-              <div class="text-left">
+            
+            	<div class="col-md-4 offset-md-9">
               <div class="input-group mb-3">
                <div class="input-group-prepend">
                  <span class="input-group-text" id="inputGroup-sizing-default">Fecha de Reporte:</span>
                </div>
                  <input  type="date" name="fecha_reporte" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                </div>
-               </div>
+                  </div>
+        
                <form>
                 <div class="form-row align-items-center">
                 <div class="col-auto">
                    <label class="sr-only" for="inlineFormInputGroup">Su Nombre</label>
                       <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text">Respor&oacute;</div>
+                        <div class="input-group-text">Report&oacute;</div>
                       </div>
                        <input type="text" name="reporto" class="form-control" id="inlineFormInputGroup" placeholder="">
                       </div>
@@ -102,79 +106,82 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
                         </div>
                 
                                 <div class="col-auto">
-                                 <label class="sr-only" for="inlineFormInputGroup">Nombre del tecnico</label>
+                                 <label class="sr-only" for="inlineFormInputGroup">Nombre del t&eacute;cnico</label>
                                    <div class="input-group mb-2">
                                       <div class="input-group-prepend">
                                         <div class="input-group-text">Atendi&oacute;</div>
                                       </div>
-                                         <input type="text" name="reporto" class="form-control" id="inlineFormInputGroup" placeholder="">
+                                         <input type="text" name="atendio" class="form-control" id="inlineFormInputGroup" placeholder="">
                                     </div>
                                </div>
                 </div>
                 </form>
            
-                      <div class="col-auto">
-                       <div class="input-group mb-3">
+                   <form class="form-inline">
+                       <div class="form-group mb-2">
                        <div class="input-group-prepend">
                            <span class="input-group-text" id="inputGroup-sizing-default">Verificentros:</span>
                        </div>
                             <input  type="text" name="verificentro" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                        </div>
-                       </div>      
-                            
-                            <div class="col-auto">
-                             <div class="d-flex">
-                               <div class="dropdown mr-1">
-                                <button type="button" class="btn btn-light dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20"> Mantenimiento </button>
-                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                  <a class="dropdown-item" name="mant" value="preventivo" href="#">Preventivo</a>
+                             <div class="form-group mx-sm-3 mb-2">
+                              <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mantenimiento </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                 <a class="dropdown-item" name="mant" value="preventivo" href="#">Preventivo</a>
                                   <a class="dropdown-item" name="mant" value="correctivo" href="#">Correctivo</a>
                                    <a class="dropdown-item" name="mant" value="limpieza" href="#">Limpieza</a>
+                                </div>
                                  </div>
+                            
                                </div>
+                    </form>
+</div>
+                            <from>
+	                         <div class="form-group mb-3">
+                               <label for="exampleFormControlTextarea1" style="font-size: 18px;">Descripci&oacute;n de la falla:</label>
+                                 <textarea class="form-control"  name="desc_falla" id="exampleFormControlTextarea1" rows="3"></textarea>
                               </div>
-                            </div>
-</div>
-<form>
-	 <div class="form-group">
-    <label for="exampleFormControlTextarea1" style="font-size: 18px;">Descripci&oacute;n de la falla:</label>
-    <textarea class="form-control"  name="desc_falla" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-<div class="form-group">
-    <label for="exampleFormControlTextarea1" style="font-size: 18px;">Descripci&oacute;n de la soluci&oacute;:</label>
-    <textarea class="form-control"  name="desc_solucion" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1" style="font-size: 18px;">Refacciones Utilizadas:</label>
-    <textarea class="form-control"  name="refac_utilizadas" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
- 
- <div class="input-group mb-3">
- <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">Fecha de atencï&oactue;n de reporte</span>
-  </div>
-<input type="date" class="form-control" name="aten_reporte">
-</div>
-  
- <div class="form-row">
-    <div class="col">
-      <input type="text" name="firma_tecnico" class="form-control" placeholder="">
-      <label for="exampleFormControlTextarea1" style="font-size: 18px;">Nombre y firma del técnico de SMS</label>
-    </div>
-    <div class="col">
-      <input type="text" name="conformidad" class="form-control" placeholder="">
-      <label for="exampleFormControlTextarea1" style="font-size: 18px;">Sello y firma de recibo de conformidad</label>
-    </div>
-  </div>
-</form>
+                            <div class="form-group mb-3">
+                               <label for="exampleFormControlTextarea1" style="font-size: 18px;">Descripci&oacute;n de la soluci&oacute;n:</label>
+                                 <textarea class="form-control"  name="desc_solucion" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="exampleFormControlTextarea1" style="font-size: 18px;">Refacciones Utilizadas:</label>
+                                   <textarea class="form-control"  name="refac_utilizadas" id="exampleFormControlTextarea1" rows="3"></textarea>
+                               </div>
+                            </from>                     
+                     
+                            <div class="col-md-4">
+                             <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Fecha de atenci&oacute;n de reporte</span>
+                              </div>
+                                <input type="date" class="form-control" name="aten_reporte">
+                               </div>
+                               </div>
+                        
+                       
+                       <div class="form-row">
+                          <div class="col">
+                             <input type="text" name="firma_tecnico" class="form-control" placeholder="">
+                              <label for="exampleFormControlTextarea1" style="font-size: 18px;">Nombre y firma del t&eacute;cnico de SMS</label>
+                                </div>
+                           <div class="col">
+                             <input type="text" name="conformidad" class="form-control" placeholder="">
+                              <label for="exampleFormControlTextarea1" style="font-size: 18px;">Sello y firma de recibo de conformidad</label>
+                              </div>
+                          </div>
+                        
 
- <footer class="bd-footer text-muted">
- 	<div class="container-fluid p-3 p-md-5">
+ <footer class="footer bg-secondary position-bottom">
+ 	<div class="container">
  		<address>
     <strong>SMS</strong><br />
-   AVENIDA INSURGENTES SUR 800 PISO 8 DEL VALLE <br />
+   AVENIDA INSURGENTES SUR 800 PISO 8 . DEL VALLE <br />
     . CIUDAD DE MÉXICO . 03100<br />
-    <abbr title="phone">Tel:</abbr> (55) 5336 2000
+   Tel: (55) 5336 2000
   </address>
  	</div>
  </footer>
