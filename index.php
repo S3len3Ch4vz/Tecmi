@@ -60,7 +60,7 @@ if(isset($_POST['login'])){
         align-items: center;
         padding-top: 40px;
         padding-bottom: 40px;
-        background-color: #1FB4E7;
+        background-color: #A0CAD9;
       }
       .form-signin {
         width: 100%;
