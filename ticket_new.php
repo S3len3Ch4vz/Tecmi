@@ -69,12 +69,12 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
      </div>
        <p class="col-md-4" style="font-size:25px;">Fecha: <?/*=$fechaActual;*/?></p>
       </form>
-<div class="container">
+<div class="container-fluid">
 	<div class="text-center">
          <h1 class="display-4">Orden de Servicio</h1>
     </div>
             
-            	<div class="col-md-4 offset-md-9">
+            	<div class="col-md-4 offset-md-8">
               <div class="input-group mb-3">
                <div class="input-group-prepend">
                  <span class="input-group-text" id="inputGroup-sizing-default">Fecha de Reporte:</span>
@@ -85,34 +85,38 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
         
                <form>
                 <div class="form-row align-items-center">
+                      <div class="col-md-4 mb-3">
                 <div class="col-auto">
                    <label class="sr-only" for="inlineFormInputGroup">Su Nombre</label>
-                      <div class="input-group mb-2">
+                      <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <div class="input-group-text">Report&oacute;</div>
                       </div>
                        <input type="text" name="reporto" class="form-control" id="inlineFormInputGroup" placeholder="">
                       </div>
-                </div>
-                
+                </div> 
+                      </div> 
+                          <div class="col-md-4 mb-3">
                        <div class="col-auto">
                           <label class="sr-only" for="inlineFormInputGroup">Cargo</label>
-                            <div class="input-group mb-2">
+                            <div class="input-group mb-3">
                              <div class="input-group-prepend">
                                <div class="input-group-text">Cargo</div>
                              </div>
                                <input type="text" name="cargo" class="form-control" id="inlineFormInputGroup" placeholder="">
                             </div>
                         </div>
-                
+                             </div>
+                                   <div class="col-md-4 mb-3">
                                 <div class="col-auto">
                                  <label class="sr-only" for="inlineFormInputGroup">Nombre del t&eacute;cnico</label>
-                                   <div class="input-group mb-2">
+                                   <div class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <div class="input-group-text">Atendi&oacute;</div>
                                       </div>
                                          <input type="text" name="atendio" class="form-control" id="inlineFormInputGroup" placeholder="">
                                     </div>
+                               </div>
                                </div>
                 </div>
                 </form>
@@ -120,24 +124,28 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
                    <form class="form-inline">
                        <div class="form-group mb-2">
                        <div class="input-group-prepend">
-                           <span class="input-group-text" id="inputGroup-sizing-default">Verificentros:</span>
+                         <div class="input-group-text">Verificentro</div>
                        </div>
-                            <input  type="text" name="verificentro" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input  type="text" name="verificentro" class="form-control" class="form-control" id="inlineFormInputGroup" placeholder="">
                        </div>
-                             <div class="form-group mx-sm-3 mb-2">
-                              <div class="dropdown">
+                             <div class="form-group col-md-3 mb-2">
+                             	<label class="input-group-text" for="exampleFormControlSelect1">Mantenimiento</label>
+                               <select class="form-control btn-info" id="exampleFormControlSelect1">
+                               	<option value="preventivo">Preventivo</option>
+                               	<option value="correctivo">Correctivo</option>
+                               	<option value="limpieza">Liempieza</option>
+                              <!--<div class="dropdown">
                                 <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" 
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mantenimiento </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                  <a class="dropdown-item" name="mant" value="preventivo" href="#">Preventivo</a>
                                   <a class="dropdown-item" name="mant" value="correctivo" href="#">Correctivo</a>
                                    <a class="dropdown-item" name="mant" value="limpieza" href="#">Limpieza</a>
-                                </div>
-                                 </div>
-                            
-                               </div>
+                                </div> </div>-->
+                                </select>
+                            </div>
                     </form>
-</div>
+
                             <from>
 	                         <div class="form-group mb-3">
                                <label for="exampleFormControlTextarea1" style="font-size: 18px;">Descripci&oacute;n de la falla:</label>
@@ -173,17 +181,19 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
                               <label for="exampleFormControlTextarea1" style="font-size: 18px;">Sello y firma de recibo de conformidad</label>
                               </div>
                           </div>
-                        
-
+                          
+                          <button type="submit" name="enviar" class="btn btn-success btn-lg btn-block">Enviar </button>
+                        <br>
+</div>
  <footer class="footer bg-secondary position-bottom">
- 	<div class="container">
+ 	<div class="container-fluid">
+ 	    <br>
  		<address>
     <strong>SMS</strong><br />
    AVENIDA INSURGENTES SUR 800 PISO 8 . DEL VALLE <br />
     . CIUDAD DE MÉXICO . 03100<br />
    Tel: (55) 5336 2000
-  </address>
- 	</div>
+  </address> </div>
  </footer>
  </body>
  </html>
