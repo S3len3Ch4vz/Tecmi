@@ -3,14 +3,15 @@ $conn=new mysqli("localhost","anevico_qasms","gSHxPJX*tiFh","anevico_qasms")or d
 error_reporting(0);
  //$tipo_usuario= "cliente"; 
 session_start(); //SESION INICIADA
-$correo=$_SESSION['usuarios_ID']; //VARIABLE QUE TOMA DE LA SESION $correo=$_SESSION['usuarios_ID'];
+$correo=$_SESSION['ID']; //VARIABLE QUE TOMA DE LA SESION $correo=$_SESSION['usuarios_ID'];
 //CONSULTA CAMPO USUARIOS
 $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' ORDER BY ID DESC ");
   while($row= mysqli_fetch_assoc($consuUsuario)){
    $tipo_usuario= $row['tipo_usuario'];
   }
 //$tipo_de_usuario_ID = 1;
-
+//echo $correo;
+//echo $tipo_usuario;
 ?>
 <!--CODIGO TABLA-->
 <html>
@@ -132,9 +133,11 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
                   <tbody>
                      <?php $consuUsuario2 = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo'");//CONSULTA TABLA USUARIOS
   while($row= mysqli_fetch_assoc($consuUsuario2)){
-   $tipo_usuario= $row['tipo_usuario']; ?>
+   $tipo_usuario= $row['tipo_usuario'];
+   $verificentrouser= $row['verificentros_ID'];
+   ?>
                          <? } ?>
-    <?php $conOrden = mysqli_query($conn ,"SELECT * FROM orden ORDER BY ID ASC"); //CONSULTA TABLA ORDEN PARA MOSTRAR TODOS LOS REGISTROS
+    <?php $conOrden = mysqli_query($conn ,"SELECT * FROM orden WHERE verificentros_ID='$verificentrouser'"); //CONSULTA TABLA ORDEN PARA MOSTRAR TODOS LOS REGISTROS
   while($row= mysqli_fetch_assoc($conOrden)){
    $folio= $row['folio'];
    $fecha= $row['fecha'];
