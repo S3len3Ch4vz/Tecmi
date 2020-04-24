@@ -22,15 +22,15 @@ if(isset($_POST['login'])){
             session_start();
             $_SESSION['usuarios_ID']=$usuarios_ID;
             $_SESSION['sesioniniciada']=true;
-            header("Location:ticket.php");
+            header("Location:adminz.php");
         }
-        if($tipo_usuario == 'cliente'){//cliente
+        /*if($tipo_usuario == 'cliente'){//cliente
             	 header("Location:ticket.php");
             }
             if($tipo_usuario == 'admin'){// administrador
             	 header("Location:adminz.php");
             	 
-            }
+            }   }*/
     }
 }
 ?>
