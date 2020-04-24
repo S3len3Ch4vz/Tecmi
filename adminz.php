@@ -1,8 +1,9 @@
 <?
 $conn=new mysqli("localhost","anevico_qasms","gSHxPJX*tiFh","anevico_qasms")or die("Connection Failed"); //CONEXION BASE DE DATOS
 error_reporting(0);
+ //$tipo_usuario= "cliente"; 
 session_start(); //SESION INICIADA
-$correo=$_SESSION['ID']; //VARIABLE QUE TOMA DE LA SESION
+$correo=$_SESSION['usuarios_ID']; //VARIABLE QUE TOMA DE LA SESION $correo=$_SESSION['usuarios_ID'];
 //CONSULTA CAMPO USUARIOS
 $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' ORDER BY ID DESC ");
   while($row= mysqli_fetch_assoc($consuUsuario)){
@@ -60,7 +61,7 @@ echo $tipo_usuario;
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Consultar tickets</a>
           </li>
             <?php 
-            if($tipo_usuario == 'cliente'){ ?>
+            if($tipo_usuario == "cliente"){ ?>
             <li class="nav-item">
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"></a>
             </li>
@@ -73,7 +74,7 @@ echo $tipo_usuario;
         <div class="tab-content shadow-lg p-3 mb-5 bg-white rounded" id="myTabContent"> 
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><?php //Consultar registro ?>
                 <?php 
-                if($tipo_usuario == 'cliente'){ ?>
+                if($tipo_usuario == "cliente"){ ?>
                   <div align="center">
                     <a href="ticket.php?accion=Crear" target="_blank" class="btn btn-success" >Crear un ticket</a>
                   </div> 
@@ -96,7 +97,7 @@ echo $tipo_usuario;
                   </thead>
                   <!--CODIGO DATOS PARA TIPO DE USUARIO CLIENTE-->
                  <?php 
-                if($tipo_usuario == 'cliente'){ ?> 
+                if($tipo_usuario == "cliente"){ ?> 
                   
                   <tbody>
                      <?php $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo'"); //CONSULTA TABLA USUARIOS
@@ -127,11 +128,11 @@ echo $tipo_usuario;
     <!--CODIGO DATOS PARA TIPO DE USUARIO ADMINISTRADOR-->
            <?php }  ?> 
            <?php 
-                if($tipo_usuario == 'admin'){ ?>
+                if($tipo_usuario == "admin"){ ?>
                   
                   <tbody>
-                     <?php $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo'");//CONSULTA TABLA USUARIOS
-  while($row= mysqli_fetch_assoc($consuUsuario)){
+                     <?php $consuUsuario2 = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo'");//CONSULTA TABLA USUARIOS
+  while($row= mysqli_fetch_assoc($consuUsuario2)){
    $tipo_usuario= $row['tipo_usuario']; ?>
                          <? } ?>
     <?php $conOrden = mysqli_query($conn ,"SELECT * FROM orden ORDER BY ID ASC"); //CONSULTA TABLA ORDEN PARA MOSTRAR TODOS LOS REGISTROS
