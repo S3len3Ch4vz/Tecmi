@@ -11,7 +11,6 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
   }
 //$tipo_de_usuario_ID = 1;
 
-echo $tipo_usuario;
 ?>
 <!--CODIGO TABLA-->
 <html>
