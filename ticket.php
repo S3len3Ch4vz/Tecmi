@@ -336,15 +336,20 @@ $foliorandom= substr(str_shuffle($permitted_chars), 0, 10);
       <!-- Unnamed (Rectangle) -->
       <div id="u15" class="ax_default label">
         <div id="u15_div" class=""></div>
-        <div id="u15_text" class="text ">
-          <p><span>VERIFICENTRO:</span></p>
-        </div>
+        <select name = "verificentros" class="dropverifi">
+            <option value = "1" selected>Fernandez del Castillo</option>
+            <option value = "2">Anevi</option>
+            
+         </select>
       </div>
-
+<style>
+    #select{
+        padding:15px;
+        font-size:10px;
+    }
+</style>
       <!-- verificentro (Text Field) -->
-      <div id="u16" class="ax_default text_field" data-label="verificentros">
-        <input id="u16_input" type="text" value="" name="verificentros" class="u16_input"/>
-      </div>
+      
 
       <!-- Unnamed (Rectangle) -->
       <div id="u17" class="ax_default label">
@@ -560,16 +565,16 @@ $reporto=$_POST['reporto'];
     $verificentros=$_POST['verificentros'];
     
     //INSERTAR DATOS DENTRO DE LA BASE DE DATOS
-    $sql="INSERT INTO `orden` (`usuarios_ID`, `folio`, `fecha`, `fecha_rep`, `reporto`, `cargo`, `atendio`, `verificentros_ID`, `tipo_mant`, `desc_falla`, `desc_solucion`, `refacc`, `fecha_atencion`, `datos_tecnico`, `recibo`, `active`) VALUES ('$usuario_ID','$folio','$fechaActual','$fecha_reporte','$reporto','$cargo','$atendio','$verificentros','$mant','$desc_falla','$desc_solucion','$refac_utilizadas','$aten_reporte','$firma_tecnico','$conformidad','1')";
+    $sql="INSERT INTO `orden` (`usuarios_ID`, `folio`, `fecha`, `fecha_rep`, `reporto`, `cargo`, `atendio`, `verificentros_ID`, `tipo_mant`, `desc_falla`, `desc_solucion`, `refacc`, `fecha_atencion`, `datos_tecnico`, `recibo`, `active`) VALUES ('$correo','$folio','$fechaActual','$fecha_reporte','$reporto','$cargo','$atendio','$verificentros','$mant','$desc_falla','$desc_solucion','$refac_utilizadas','$aten_reporte','$firma_tecnico','$conformidad','1')";
 $result=mysqli_query($conn,$sql);
 }
-}
+
 ?>
 
 <!--FINAL ACCION CREAR-->
-
-
-
+<?php 
+}
+?>
 
 
 
@@ -779,17 +784,20 @@ if ($accion == "Modificar") {
       </div>
 
       <!-- Unnamed (Rectangle) -->
-      <div id="u15" class="ax_default label">
+       <div id="u15" class="ax_default label">
         <div id="u15_div" class=""></div>
-        <div id="u15_text" class="text ">
-          <p><span>VERIFICENTRO:</span></p>
-        </div>
+        <select name = "verificentros" class="dropverifi">
+            <option value = "1" selected>Fernandez del Castillo</option>
+            <option value = "2">Anevi</option>
+            
+         </select>
       </div>
-
-      <!-- verificentro (Text Field) -->
-      <div id="u16" class="ax_default text_field" data-label="verificentros">
-        <input id="u16_input" type="text" value="" name="verificentros" class="u16_input"/>
-      </div>
+<style>
+    #select{
+        padding:15px;
+        font-size:10px;
+    }
+</style>
 
       <!-- Unnamed (Rectangle) -->
       <div id="u17" class="ax_default label">
