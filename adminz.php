@@ -10,7 +10,7 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
   }
 //$tipo_de_usuario_ID = 1;
 
-
+echo $tipo_usuario;
 ?>
 <!--CODIGO TABLA-->
 <html>
@@ -24,37 +24,9 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-  // Setup - add a text input to each footer cell
-    $('#consu_inv tfoot th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text"  placeholder="'+title+'" />' );
-    } );
-    // DataTable
-    var table = $('#consu_inv').DataTable();
-   
-    // Apply the search
-    table.columns().every( function () {
-    var that = this;
- 
-        $( 'input', this.footer() ).on( 'keyup change', function () {
-            if ( that.search() !== this.value ) {
-               that
-                   .search( this.value )
-                   .draw();
-           }
-    } );
-
-    } );
-
-      var table = $('#').DataTable();
-       
-      $('# tbody')
-          .on( 'mouseenter', 'td', function () {
-              var colIdx = table.cell(this).index().column;
-   
-              $( table.cells().nodes() ).removeClass( 'highlight' );
-              $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
-          } );          
+  $('#consu_inv').dataTable( {
+            "scrollX": true
+        } );          
     } );
   </script>
 <style>
@@ -130,7 +102,7 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
                      <?php $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo'"); //CONSULTA TABLA USUARIOS
   while($row= mysqli_fetch_assoc($consuUsuario)){
    $tipo_usuario= $row['tipo_usuario']; ?>
-   <?}?>
+                     <? } ?>
     <?php $conOrden = mysqli_query($conn ,"SELECT * FROM orden WHERE usuarios_ID= '$correo' ORDER BY ID ASC"); //CONSULTA TABLA ORDEN QUE COINCIDA CON EL ID DE LA SESION
   while($row= mysqli_fetch_assoc($conOrden)){
    $folio= $row['folio'];
@@ -149,7 +121,7 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
                           
    
    
-     <?}?>
+                          <?php } ?>
      
     </tr>
     <!--CODIGO DATOS PARA TIPO DE USUARIO ADMINISTRADOR-->
@@ -161,7 +133,7 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
                      <?php $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo'");//CONSULTA TABLA USUARIOS
   while($row= mysqli_fetch_assoc($consuUsuario)){
    $tipo_usuario= $row['tipo_usuario']; ?>
-   <?}?>
+                         <? } ?>
     <?php $conOrden = mysqli_query($conn ,"SELECT * FROM orden ORDER BY ID ASC"); //CONSULTA TABLA ORDEN PARA MOSTRAR TODOS LOS REGISTROS
   while($row= mysqli_fetch_assoc($conOrden)){
    $folio= $row['folio'];
@@ -180,7 +152,7 @@ $consuUsuario = mysqli_query($conn ,"SELECT * FROM usuarios WHERE ID='$correo' O
                           
    
    
-     <?}?>
+                       <?php } ?>
      
     </tr>
            <?php }  ?> 
